@@ -16,5 +16,6 @@ EOF
 sudo sed -i -e "s/host=\${master_ip}/host=${master_ip}/" ${recovery_dir}/recovery.conf
 sudo sed -i -e "s/password=\$postgres_pass/password=$postgres_pass/" ${recovery_dir}/recovery.conf
 sudo chown postgres:postgres ${recovery_dir}/recovery.conf
+sudo su - postgres -c 'echo -e "\nhost    all             all             10.0.0.32/29           md5" >> /etc/postgresql/9.6/main/pg_hba.conf'
 
 sudo systemctl restart postgresql

@@ -44,7 +44,8 @@ configure_postgres() {
 
   # Edit the /etc/postgresql/9.6/main/pg_hba.conf inorder to allow the IP that can connect to it
   # Allow the replicator user from the slave IP address range access to the replicator table on the master.
-  sudo su - postgres -c 'echo -e "\nhost    replication             replicator             10.156.0.0/27           md5" >> /etc/postgresql/9.6/main/pg_hba.conf'
+  sudo su - postgres -c 'echo -e "\nhost    all             all             10.0.0.32/29           md5" >> /etc/postgresql/9.6/main/pg_hba.conf'
+  sudo su - postgres -c 'echo -e "\nhost    replication             replicator             10.0.0.0/27           md5" >> /etc/postgresql/9.6/main/pg_hba.conf'
 
   # Restart the postgres server
   sudo systemctl restart postgresql

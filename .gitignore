@@ -1,0 +1,5 @@
+terraform.tfstate*
+.terraform/
+gcloud-key.json
+terraform.tfvars
+terraform_init_config
